@@ -36,7 +36,7 @@ module.exports = {
             UserPage.displayUserPage();
         }
 
-        this.navigation();
+        // this.navigation();
         // this.login();
     },
 
