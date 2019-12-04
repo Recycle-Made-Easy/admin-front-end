@@ -1,0 +1,28 @@
+{
+  "name": "admin-front-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Recycle-Made-Easy/admin-front-end.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Recycle-Made-Easy/admin-front-end/issues"
+  },
+  "homepage": "https://github.com/Recycle-Made-Easy/admin-front-end#readme"
+}
