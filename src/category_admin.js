@@ -50,6 +50,28 @@ module.exports = {
         locationFormField.innerHTML = "Delete Category";
         locationFormField.classList.add("deletion-form__field");
         fieldSet.append(locationFormField);
+
+        const DeleteCategoryButton = document.querySelector(".deletion-form__field");
+        DeleteCategoryButton.onclick = () => {
+            event.preventDefault();
+        
+            fetch(`http://localhost:8080/api/categories/delete`, {
+                method: "Delete",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: inputCategoryForDeletion.value                    
+                })
+            });
+                // .then(response => {
+                //     return response.json();
+                // })
+                // .then(category => {
+                //     console.log(category);
+                // });
+
+        }
     },
 
     showAdditionSection(){
@@ -109,12 +131,12 @@ module.exports = {
 
     },
 
-    deleteCategory(){
-        fetch("http://localhost:8080/api/categories/{name}/delete-category")
-        method: "Delete"
-        body: formData
-        .then(res => res.json());
-    },
+    // deleteCategory(){
+    //     fetch("http://localhost:8080/api/categories/{name}/delete-category")
+    //     method: "Delete"
+    //     body: formData
+    //     .then(res => res.json());
+    // },
 
     // This function is called in components.js
     adminCategories() {
