@@ -87,9 +87,26 @@ module.exports = {
         fieldSet.append(locationFormField);
 
         const AddCategoryButton = document.querySelector(".addition-form__button");
-        AddCategoryButton.onclick = (event) => {
-            console.log("button clicked");
+        AddCategoryButton.onclick = () => {
+            event.preventDefault();
+            fetch(`http://localhost:8080/api/categories/add/`, {
+                method: "Post",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: inputCategoryForAddition.value                    
+                })
+            })
+                .then(response => {
+                    return response.json();
+                })
+                .then(category => {
+                    console.log(category);
+                });
+
         }
+
     },
 
     deleteCategory(){
