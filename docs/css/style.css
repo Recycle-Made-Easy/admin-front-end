@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css?family=Happy+Monkey|Jua|Nanum+Gothic|Overlock+SC|Sniglet&display=swap");
+
+/*
+font-family: 'Happy Monkey', cursive;
+font-family: 'Overlock SC', cursive;
+font-family: 'Sniglet', cursive;
+font-family: 'Jua', sans-serif;
+font-family: 'Nanum Gothic', sans-serif;
+*/
+
+:root {
+  --oscar-the-grouch: green;
+  --some-sky-blue: rgb(144, 248, 255);
+}
+
+body {
+  background-image: linear-gradient(white, var(--some-sky-blue));
+  font-family: "Alata", sans-serif;
+  background-size: 150% 150%;
+  top:0px; 
+  bottom: 0px;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: center;
+  overflow-x: hidden;
+}
+
+
+.address-location {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  color: blue;
+  margin: 3px;
+  padding: 3px;
+}
+
+.address-location:hover {
+  border: 2px solid black;
+  color: rgb(0, 255, 34);
+  transition: 2s;
+}
+
+/* .admin-category-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+.by-town {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  text-align: center;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.dropdown {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: flex-start;
+  justify-content: space-around;
+  margin-bottom: .1rem;
+}
+
+.dropdown-content {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  display: none;
+  min-width: 220px;
+  padding: 6px 8px;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.flex-wrapper-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin: 35px;
+}
+
+.flex-wrapper-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-map {
+  overflow: hidden;
+  padding-bottom: 40%;
+  position: relative;
+  height: 0;
+}
+
+.google-map__iframe {
+  width: 600;
+  height: 450;
+  border: 0;
+}
+
+.header__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header__left-side {
+}
+
+.header__menu {
+  background-color: var(--oscar-the-grouch);
+}
+
+.header__right-side {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.header__title {
+  color: var(--oscar-the-grouch);
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.header__title:hover {
+  color: rgb(0, 212, 0);
+}
+
+.input {
+  background-color: rgb(167, 221, 167);
+  margin-bottom: .5rem;
+  margin-left: 2rem;
+}
+
+label {
+  padding: 2px;
+  text-align: left;
+}
+
+.location-selection-container {
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  padding: 5px;
+}
+
+.location-selection-header {
+  text-align: center;
+}
+
+.location-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.location-form__button {
+  align-self: center;
+  background-color: #18364b;
+  color: #e2ecf2;
+  font-family: "Alata", sans-serif;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  width: 100%;
+}
+
+.location-form__button:active {
+  background-color: #e2ecf2;
+  color: #18364b;
+  filter: saturate(150%);
+  transform: translateY(1px);
+}
+
+.location-form__button:focus {
+}
+
+.location-form__button:hover {
+}
+
+.location-form__fieldset {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.location-form__field {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+}
+
+.nav__button {
+  background-color: green;
+  color: white;
+  font-size: 1.15rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  padding: 0.35rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.nav__button:hover {
+  background-color: rgb(0, 212, 0);
+  color: white;
+}
+
+.nav__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.nav__list {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav__list-item {
+  color: var(--oscar-the-grouch);
+  font-size: 1.15rem;
+  list-style: none;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.nav__list-item:hover {
+  color: rgb(0, 212, 0);
+}
+
+/* 
+.recycling-category-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+} */
+
+.selectList {
+  background-color: rgb(167, 221, 167);
+  width: 150px;
+}
+
+.submit {
+  background-color: green;
+  color: white;
+}
+
+.submit:hover {
+  background-color: rgb(0, 212, 0);
+  color: white;
+}
+
+.wrapper {
+}
