@@ -61,7 +61,7 @@ module.exports = {
             // Recycle Center City
             const city = document.createElement("div");
             city.classList.add("address-city");
-            city.innerHTML = center.city;            
+            city.innerHTML = center.city + ",";            
             cityState.append(city);
 
             // Recycle Center State
