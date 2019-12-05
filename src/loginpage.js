@@ -46,7 +46,7 @@ module.exports = {
         const inputPassword = document.querySelector(".password-input").value;
         
         const div = document.createElement("div");
-        if(inputPassword == "aaa") {
+        if(inputPassword == "savagesucksatfoose") {
             div.innerHTML = "login successful";
             div.className = "show";
             Components.navigation();
