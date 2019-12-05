@@ -16,8 +16,8 @@ font-family: 'Nanum Gothic', sans-serif;
 body {
   background-image: linear-gradient(white, var(--some-sky-blue));
   font-family: "Alata", sans-serif;
-  background-size: 150% 150%;
-  top:0px; 
+  background-size: 500% 500%;
+  top:0px;
   bottom: 0px;
   height: 100%;
   background-repeat: no-repeat;
@@ -40,12 +40,6 @@ body {
   color: rgb(0, 255, 34);
   transition: 2s;
 }
-
-/* .admin-category-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-} */
 
 .by-town {
   align-items: flex-start;
@@ -97,6 +91,10 @@ body {
   align-items: center;
 }
 
+.login-button {
+  margin: 1rem;
+}
+
 .google-map {
   overflow: hidden;
   padding-bottom: 40%;
@@ -115,9 +113,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.header__left-side {
 }
 
 .header__menu {
@@ -186,12 +181,6 @@ label {
   transform: translateY(1px);
 }
 
-.location-form__button:focus {
-}
-
-.location-form__button:hover {
-}
-
 .location-form__fieldset {
   align-items: flex-start;
   display: flex;
@@ -206,6 +195,9 @@ label {
   padding: 0.25rem;
 }
 
+.login-label {
+  padding: 1rem;
+}
 .nav__button {
   background-color: green;
   color: white;
@@ -250,13 +242,9 @@ label {
   color: rgb(0, 212, 0);
 }
 
-/* 
-.recycling-category-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-} */
-
+.password-label {
+  padding: 1rem;
+}
 .selectList {
   background-color: rgb(167, 221, 167);
   width: 150px;
@@ -270,9 +258,6 @@ label {
 .submit:hover {
   background-color: rgb(0, 212, 0);
   color: white;
-}
-
-.wrapper {
 }
 
 .snackbar {
