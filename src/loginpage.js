@@ -51,9 +51,6 @@ module.exports = {
         document.querySelector(".flex-wrapper-outer").append(div);
         
         div.className = "show";
-
-        
-        setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
     }
 
 
