@@ -35,7 +35,6 @@ module.exports = {
 
         loginButton.onclick = () => {
             event.preventDefault();
-            Components.navigation();
             this.Snackbar();
 
 
@@ -44,13 +43,24 @@ module.exports = {
 
     Snackbar() {
         
+        const inputPassword = document.querySelector(".password-input").value;
         
         const div = document.createElement("div");
-        div.innerHTML = "login successful";
+        if(inputPassword == "aaa") {
+            div.innerHTML = "login successful";
+            div.className = "show";
+            Components.navigation();
+        } else if (inputPassword == "bbb") {
+            div.innerHTML = "Please try again";
+            div.className = "show";
+        } else {
+            div.innerHTML = "Please try again";
+            div.className = "show";
+        }
         div.classList.add("snackbar");
         document.querySelector(".flex-wrapper-outer").append(div);
         
-        div.className = "show";
+        
     }
 
 
