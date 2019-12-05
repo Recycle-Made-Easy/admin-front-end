@@ -25,6 +25,13 @@ body {
   overflow-x: hidden;
 }
 
+.address-city-state__container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
 
 .address-location {
   background-color: white;
@@ -39,6 +46,10 @@ body {
   border: 2px solid black;
   color: rgb(0, 255, 34);
   transition: 2s;
+}
+
+.address-zip {
+  margin-left: .25rem;
 }
 
 .by-town {
