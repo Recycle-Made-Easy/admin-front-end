@@ -78,27 +78,16 @@ module.exports = {
 
         const inputUsername = document.querySelector(".login-input").value;
         const inputPassword = document.querySelector(".password-input").value;
-        // const div = document.createElement("div");
-        if (inputPassword == "savagesucksatfoose") {
-            this.loginSuccessful();
-            // div.innerHTML = "login successful";
-            // div.className = "show";
-            // setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
-            // Components.navigation();
-            // document.querySelector(".content-wrapper").removeChild(document.querySelector(".login__fieldset"));
-            // recycle_centers.displayRecycleCentersPage();
+  
+        if (inputPassword == "a") {
+            this.loginSuccessful();            
 
         } else if (inputUsername == "admin" && inputPassword == "admin") {
             this.loginSuccessful();
 
         } else {
             this.loginUnsuccessful();
-            // div.innerHTML = "Please try again.";
-            // div.className = "show";
-            // setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
-        }
-        // div.classList.add("snackbar");
-        // document.querySelector(".content-wrapper").append(div);
+        }      
     },
 
     loginSuccessful() {

@@ -11,14 +11,6 @@ module.exports = {
         createdHeaderContainer.classList.add("header__container");
         wrapper.append(createdHeaderContainer);
 
-        // const headerLeftSide = document.createElement("div");
-        // headerLeftSide.classList.add("header__left-side");
-        // createdHeaderContainer.append(headerLeftSide);
-
-        // const headerRightSide = document.createElement("div");
-        // headerRightSide.classList.add("header__right-side");
-        // createdHeaderContainer.append(headerRightSide);
-
         const headerTitle = document.createElement("h1");
         headerTitle.innerHTML = "Recycle Made Easy";
         headerTitle.classList.add("header__title");
@@ -44,7 +36,6 @@ module.exports = {
         navContainer.append(loginButton);
 
         loginButton.onclick = () => {
-            // loginButton.hidden = true;
             const login = document.querySelector(".nav__button").style.display = "none";
             if (login.style.display === "block") {
                 login.style.display = "none";
