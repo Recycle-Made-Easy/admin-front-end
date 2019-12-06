@@ -1,8 +1,7 @@
 const Map = require("./map");
 const Config = require("./config");
-const UserPage = require("./user_page");
 const AdminCat = require("./category_admin");
-const recycle_centers = require("./recycle_centers")
+const recycle_centers = require("./recycle_centers");
 
 module.exports = {
 

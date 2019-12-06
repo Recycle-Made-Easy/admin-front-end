@@ -1,4 +1,5 @@
 const Components = require("./components");
+const recycle_centers = require("./recycle_centers");
 
 module.exports = {
 
@@ -82,15 +83,19 @@ module.exports = {
         if (userName == "admin" && inputPassword == "admin") {
             div.innerHTML = "Login successful!";
             div.className = "show";
+            setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
             Components.navigation();
+            document.querySelector(".content-wrapper").removeChild(document.querySelector(".login__fieldset"));
+            recycle_centers.displayRecycleCentersPage();
 
         } else {
             div.innerHTML = "Please try again.";
             div.className = "show";
+            setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
         }
 
         div.classList.add("snackbar");
-        document.querySelector(".login__container").append(div);
+        document.querySelector(".content-wrapper").append(div);
 
     }
 

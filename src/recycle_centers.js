@@ -17,7 +17,7 @@ module.exports = {
 
         const wrapperContainer = document.createElement("wrapper");
         wrapperContainer.classList.add("location-list__container");
-        document.querySelector(".flex-wrapper-outer").append(wrapperContainer);
+        document.querySelector(".content-wrapper").append(wrapperContainer);
 
         const addressContainer = document.createElement("section");
         addressContainer.classList.add("addresses-container");
