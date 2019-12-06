@@ -42,11 +42,11 @@ module.exports = {
     },
 
     Snackbar() {
-        
+
         const inputPassword = document.querySelector(".password-input").value;
-        
+
         const div = document.createElement("div");
-        if(inputPassword == "savagesucksatfoose") {
+        if (inputPassword == "savagesucksatfoose") {
             div.innerHTML = "login successful";
             div.className = "show";
             Components.navigation();
@@ -59,8 +59,8 @@ module.exports = {
         }
         div.classList.add("snackbar");
         document.querySelector(".flex-wrapper-outer").append(div);
-        
-        
+
+
     }
 
 
