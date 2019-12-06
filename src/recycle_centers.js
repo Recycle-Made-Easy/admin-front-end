@@ -124,13 +124,49 @@ module.exports = {
                 inputZipCode.value = center.zipCode;
                 inputPlaceId.value = center.placeId;
 
-                console.log("Inside div onclick event.");
-                console.log(center);
+                document.querySelector(".submitButton-add").hidden = true;
+
+                const editButton = document.createElement("button");
+                editButton.classList.add("submitButton");
+                editButton.classList.add("submitButton-edit");
+                editButton.innerHTML = "Save Changes";
+                document.querySelector(".location-form__field").append(editButton);
+                console.log(center.id);
+
+                editButton.onclick = () => {
+                    event.preventDefault();
+                    fetch(`http://localhost:8080/api/centers/edit/` + center.id, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: toStringify({
+                            name: inputName.value,
+                            streetAddress: inputStreetAddress.value,
+                            city: inputCity.value,
+                            state: inputState.value,
+                            zipCode: inputZipCode.value,
+                            placeId: inputPlaceId.value,
+                        })
+                    })
+                    // .then(response => {
+                    //     return response.json();
+                    // })
+                    // .then(center => {
+                    //     console.log(center);
+                    // })
+                    .then(() => {
+                        this.listOfRecycleCenters();
+                    });
+                }
+
+
             }
 
         })
 
-    },    
+    },
+
 
     recycleCenterAddForm() {
 
@@ -211,6 +247,7 @@ module.exports = {
 
         const submitButton = document.createElement("button");
         submitButton.classList.add("submitButton");
+        submitButton.classList.add("submitButton-add");
         submitButton.innerHTML = "Submit";
         locationFormField.append(submitButton);
 
