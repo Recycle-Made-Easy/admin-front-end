@@ -59,13 +59,6 @@ module.exports = {
         const centers = await Config.FetchData(endpoint);
         centers.forEach(center => {
 
-            console.log(center.name);
-            console.log(center.streetAddress);
-            console.log(center.city);
-            console.log(center.state);
-            console.log(center.zipCode);
-            console.log(center.placeId);
-
             // Recycle Center Card Container
             const div = document.createElement("div")
             div.classList.add("address-location");
@@ -100,6 +93,67 @@ module.exports = {
             zip.classList.add("address-zip");
             zip.innerHTML = center.zipCode;
             cityState.append(zip);
+
+            // Center info populates in form when clicked on.
+            div.onclick = () => {
+                // this.showRecycleCenterDetailsInForm(center);
+
+                const inputName = document.querySelector(".location-form__input-name");
+                const inputStreetAddress = document.querySelector(".location-form__input-street");
+                const inputCity = document.querySelector(".location-form__input-city");
+                const inputState = document.querySelector(".location-form__input-state");
+                const inputZipCode = document.querySelector(".location-form__input-zip");
+                const inputPlaceId = document.querySelector(".location-form__input-placeid");
+
+                inputName.value = center.name;
+                inputStreetAddress.value = center.streetAddress;
+                inputCity.value = center.city;
+                inputState.value = center.state;
+                inputZipCode.value = center.zipCode;
+                inputPlaceId.value = center.placeId;
+
+                console.log("Inside div onclick event.");
+                console.log(center);
+
+                document.querySelector(".submitButton-add").hidden = true;
+
+                const editButton = document.createElement("button");
+                editButton.classList.add("submitButton");
+                editButton.classList.add("submitButton-edit");
+                editButton.innerHTML = "Save Changes";
+                document.querySelector(".location-form__field").append(editButton);
+                console.log(center.id);
+
+                editButton.onclick = () => {
+                    event.preventDefault();
+                    fetch(`http://localhost:8080/api/centers/edit/` + center.id, {
+                        method: "PATCH",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: toStringify({
+                            name: inputName.value,
+                            streetAddress: inputStreetAddress.value,
+                            city: inputCity.value,
+                            state: inputState.value,
+                            zipCode: inputZipCode.value,
+                            placeId: inputPlaceId.value,
+                        })
+                    })
+                        // .then(response => {
+                        //     return response.json();
+                        // })
+                        // .then(center => {
+                        //     console.log(center);
+                        // })
+                        .then(() => {
+                            this.listOfRecycleCenters();
+                        });
+                }
+
+
+            }
+
         })
 
     },

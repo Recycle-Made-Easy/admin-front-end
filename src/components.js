@@ -36,7 +36,6 @@ module.exports = {
         navContainer.append(loginButton);
 
         loginButton.onclick = () => {
-            // loginButton.hidden = true;
             const login = document.querySelector(".nav__button").style.display = "none";
             if (login.style.display === "block") {
                 login.style.display = "none";
