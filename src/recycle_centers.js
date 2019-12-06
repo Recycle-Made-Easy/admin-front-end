@@ -10,7 +10,6 @@ module.exports = {
 
         const listContainer = document.createElement("div");
         listContainer.classList.add("location-list__container");
-        // listContainer.innerHTML = "Recycle Locations:";  
         wrapper.append(listContainer);
 
         const helperContainer = document.createElement("div");
@@ -19,11 +18,21 @@ module.exports = {
 
         const searchBarContainer = document.createElement("div");
         searchBarContainer.classList.add("location-search__container");
+        searchBarContainer.innerHTML = "Recycle Locations";
         helperContainer.append(searchBarContainer);
 
         const formLinkContainer = document.createElement("div");
         formLinkContainer.classList.add("location-link__container");
         helperContainer.append(formLinkContainer);
+
+        const showAddForm = document.createElement("a");
+        showAddForm.classList.add("add-form-link");
+        showAddForm.innerHTML = "Add Recycle Center";
+        showAddForm.href = "javascript:void(0);";
+        formLinkContainer.append(showAddForm)
+        showAddForm.onclick = () => {
+            this.recycleCenterAddForm();
+        };
 
         const addressContainer = document.createElement("div");
         addressContainer.classList.add("addresses-container");
@@ -97,9 +106,31 @@ module.exports = {
             // placeId.innerHTML = center.placeId;            
             // div.append(placeId);
 
+            // Center info populates in form when clicked on.
+            div.onclick = () => {
+                // this.showRecycleCenterDetailsInForm(center);
+
+                const inputName = document.querySelector(".location-form__input-name");
+                const inputStreetAddress = document.querySelector(".location-form__input-street");
+                const inputCity = document.querySelector(".location-form__input-city");
+                const inputState = document.querySelector(".location-form__input-state");
+                const inputZipCode = document.querySelector(".location-form__input-zip");
+                const inputPlaceId = document.querySelector(".location-form__input-placeid");
+
+                inputName.value = center.name;
+                inputStreetAddress.value = center.streetAddress;
+                inputCity.value = center.city;
+                inputState.value = center.state;
+                inputZipCode.value = center.zipCode;
+                inputPlaceId.value = center.placeId;
+
+                console.log("Inside div onclick event.");
+                console.log(center);
+            }
+
         })
 
-    },
+    },    
 
     recycleCenterAddForm() {
 

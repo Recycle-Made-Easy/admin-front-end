@@ -25,6 +25,15 @@ body {
   overflow-x: hidden;
 }
 
+.add-form-link {
+  color: var(--oscar-the-grouch);
+  text-decoration: none;
+}
+
+.add-form-link:hover {
+  color: rgb(0, 212, 0);
+}
+
 .address-city-state__container {
   align-items: flex-start;
   display: flex;
@@ -164,7 +173,7 @@ body {
   display: grid;
   grid-gap: .5rem;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: .25fr 1fr 1fr;
 }
 
 .location-form__container {
@@ -235,18 +244,28 @@ body {
 }
 
 .location-link__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
 
+.location-search__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .location-top__container {
-  align-items: stretch;
+  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-around;
   grid-area: 1 / 1 / 2 / 3;
   max-height: 25%;
-  margin: 0;
-  padding: 0;
+  margin-top: .5rem;
+  padding: .5rem;
 }
 
 .login-button {
