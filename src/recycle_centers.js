@@ -95,8 +95,8 @@ module.exports = {
             cityState.append(zip);
 
             // Center info populates in form when clicked on.
+
             div.onclick = () => {
-                // this.showRecycleCenterDetailsInForm(center);
 
                 const inputName = document.querySelector(".location-form__input-name");
                 const inputStreetAddress = document.querySelector(".location-form__input-street");
@@ -115,14 +115,12 @@ module.exports = {
                 console.log("Inside div onclick event.");
                 console.log(center);
 
+                // Hide Submit button for adding a new center...
                 document.querySelector(".submitButton-add").hidden = true;
 
-                const editButton = document.createElement("button");
-                editButton.classList.add("submitButton");
-                editButton.classList.add("submitButton-edit");
-                editButton.innerHTML = "Save Changes";
-                document.querySelector(".location-form__field").append(editButton);
-                console.log(center.id);
+                // Show Save Changes button for updating a center...
+                const editButton = document.querySelector(".submitButton-edit");
+                editButton.hidden = false;
 
                 editButton.onclick = () => {
                     event.preventDefault();
@@ -131,7 +129,7 @@ module.exports = {
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: toStringify({
+                        body: JSON.stringify({
                             name: inputName.value,
                             streetAddress: inputStreetAddress.value,
                             city: inputCity.value,
@@ -140,12 +138,6 @@ module.exports = {
                             placeId: inputPlaceId.value,
                         })
                     })
-                        // .then(response => {
-                        //     return response.json();
-                        // })
-                        // .then(center => {
-                        //     console.log(center);
-                        // })
                         .then(() => {
                             this.listOfRecycleCenters();
                         });
@@ -241,6 +233,80 @@ module.exports = {
         submitButton.classList.add("submitButton-add");
         submitButton.innerHTML = "Submit";
         locationFormField.append(submitButton);
+        this.addRecycleCenterSubmitButtonOnclick();
+
+        // Create the Save Changes button but hide it...
+        const editButton = document.createElement("button");
+        editButton.classList.add("submitButton");
+        editButton.classList.add("submitButton-edit");
+        editButton.innerHTML = "Save Changes";
+        document.querySelector(".location-form__field").append(editButton);
+        editButton.hidden = true;
+
+    },
+
+    // saveChangesButtonOnclick(div) {
+
+    //     div.onclick = () => {
+
+    //         const inputName = document.querySelector(".location-form__input-name");
+    //         const inputStreetAddress = document.querySelector(".location-form__input-street");
+    //         const inputCity = document.querySelector(".location-form__input-city");
+    //         const inputState = document.querySelector(".location-form__input-state");
+    //         const inputZipCode = document.querySelector(".location-form__input-zip");
+    //         const inputPlaceId = document.querySelector(".location-form__input-placeid");
+
+    //         inputName.value = center.name;
+    //         inputStreetAddress.value = center.streetAddress;
+    //         inputCity.value = center.city;
+    //         inputState.value = center.state;
+    //         inputZipCode.value = center.zipCode;
+    //         inputPlaceId.value = center.placeId;
+
+    //         console.log("Inside div onclick event.");
+    //         console.log(center);
+
+    //         // Hide Submit button for adding a new center...
+    //         document.querySelector(".submitButton-add").hidden = true;
+
+    //         // Show Save Changes button for updating a center...
+    //         document.querySelector(".submitButton-edit").hidden = false;
+
+    //         this.saveChangesButtonOnclick(center.id);
+
+    //         // editButton.onclick = () => {
+    //         //     event.preventDefault();
+    //         //     fetch(`http://localhost:8080/api/centers/edit/` + center.id, {
+    //         //         method: "PATCH",
+    //         //         headers: {
+    //         //             "Content-Type": "application/json"
+    //         //         },
+    //         //         body: JSON.stringify({
+    //         //             name: inputName.value,
+    //         //             streetAddress: inputStreetAddress.value,
+    //         //             city: inputCity.value,
+    //         //             state: inputState.value,
+    //         //             zipCode: inputZipCode.value,
+    //         //             placeId: inputPlaceId.value,
+    //         //         })
+    //         //     })
+    //         //         .then(() => {
+    //         //             this.listOfRecycleCenters();
+    //         //         });
+    //         // }
+
+
+    // },
+
+    addRecycleCenterSubmitButtonOnclick() {
+
+        const inputName = document.querySelector(".location-form__input-name");
+        const inputStreetAddress = document.querySelector(".location-form__input-street");
+        const inputCity = document.querySelector(".location-form__input-city");
+        const inputState = document.querySelector(".location-form__input-state");
+        const inputZipCode = document.querySelector(".location-form__input-zip");
+        const inputPlaceId = document.querySelector(".location-form__input-placeid");
+        const submitButton = document.querySelector(".submitButton-add");
 
         submitButton.onclick = () => {
             event.preventDefault();
@@ -250,12 +316,12 @@ module.exports = {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name: inputLocationName.value,
-                    streetAddress: inputLocationStreetAddress.value,
-                    city: inputLocationCity.value,
-                    state: inputLocationState.value,
-                    zipCode: inputLocationZipCode.value,
-                    placeId: inputLocationPlaceId.value,
+                    name: inputName.value,
+                    streetAddress: inputStreetAddress.value,
+                    city: inputCity.value,
+                    state: inputState.value,
+                    zipCode: inputZipCode.value,
+                    placeId: inputPlaceId.value,
                 })
             })
                 .then(response => {
@@ -268,6 +334,7 @@ module.exports = {
                     this.listOfRecycleCenters();
                 });
         }
+
     }
 
 }
