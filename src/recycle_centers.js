@@ -4,9 +4,47 @@ module.exports = {
 
     displayRecycleCentersPage() {
 
-        const wrapper = document.createElement("wrapper");
-        wrapper.classList.add("flex-wrapper-outer");
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("location-admin__container");
         document.querySelector(".content-wrapper").append(wrapper);
+
+        const listContainer = document.createElement("div");
+        listContainer.classList.add("location-list__container");
+        wrapper.append(listContainer);
+
+        const helperContainer = document.createElement("div");
+        helperContainer.classList.add("location-top__container");
+        wrapper.append(helperContainer);
+
+        const searchBarContainer = document.createElement("div");
+        searchBarContainer.classList.add("location-search__container");
+        searchBarContainer.innerHTML = "Recycle Locations";
+        helperContainer.append(searchBarContainer);
+
+        const formLinkContainer = document.createElement("div");
+        formLinkContainer.classList.add("location-link__container");
+        helperContainer.append(formLinkContainer);
+
+        const showAddForm = document.createElement("a");
+        showAddForm.classList.add("add-form-link");
+        showAddForm.innerHTML = "Add Recycle Center";
+        showAddForm.href = "javascript:void(0);";
+        formLinkContainer.append(showAddForm)
+        showAddForm.onclick = () => {
+            this.recycleCenterAddForm();
+        };
+
+        const addressContainer = document.createElement("div");
+        addressContainer.classList.add("addresses-container");
+        listContainer.append(addressContainer);
+
+        const formContainer = document.createElement("div");
+        formContainer.classList.add("location-form__container");
+        wrapper.append(formContainer);
+
+        const mapContainer = document.createElement("div");
+        mapContainer.classList.add("location-map__container");
+        wrapper.append(mapContainer);
 
         this.listOfRecycleCenters();
         this.recycleCenterAddForm();
@@ -15,14 +53,7 @@ module.exports = {
 
     async listOfRecycleCenters() {
 
-        const wrapperContainer = document.createElement("wrapper");
-        wrapperContainer.classList.add("location-list__container");
-        document.querySelector(".flex-wrapper-outer").append(wrapperContainer);
-
-        const addressContainer = document.createElement("section");
-        addressContainer.classList.add("addresses-container");
-        addressContainer.innerHTML = "Recycle Locations:";
-        wrapperContainer.append(addressContainer);
+        document.querySelector(".addresses-container").innerHTML = "";
 
         const endpoint = Config.EndPoints().get("get_all_centers");
         const centers = await Config.FetchData(endpoint);
@@ -34,7 +65,7 @@ module.exports = {
             console.log(center.state);
             console.log(center.zipCode);
             console.log(center.placeId);
-            
+
             // Recycle Center Card Container
             const div = document.createElement("div")
             div.classList.add("address-location");
@@ -47,12 +78,6 @@ module.exports = {
             link.innerHTML = center.name;
             div.append(link);
 
-            // Recycle Center Address
-            // const streetDiv = document.createElement("div");
-            // streetDiv.classList.add("address-street");
-            // streetDiv.innerHTML = center.streetAddress;            
-            // div.append(streetAddress);
-
             // Recycle Center City & State
             const cityState = document.createElement("div");
             cityState.classList.add("address-city-state__container");
@@ -61,40 +86,32 @@ module.exports = {
             // Recycle Center City
             const city = document.createElement("div");
             city.classList.add("address-city");
-            city.innerHTML = center.city + ",";            
+            city.innerHTML = center.city + ",";
             cityState.append(city);
 
             // Recycle Center State
             const state = document.createElement("div");
             state.classList.add("address-state");
-            state.innerHTML = center.state;          
+            state.innerHTML = center.state;
             cityState.append(state);
 
             // Recycle Center Zip Code
             const zip = document.createElement("div");
             zip.classList.add("address-zip");
-            zip.innerHTML = center.zipCode;            
+            zip.innerHTML = center.zipCode;
             cityState.append(zip);
-
-            // Recycle Center Place Id
-            // const placeId = document.createElement("div");
-            // placeId.classList.add("address-placeId");
-            // placeId.innerHTML = center.placeId;            
-            // div.append(placeId);
-            
         })
 
     },
 
+
     recycleCenterAddForm() {
 
-        const wrapperContainer = document.createElement("wrapper");
-        wrapperContainer.classList.add("location-form__container");
-        document.querySelector(".flex-wrapper-outer").append(wrapperContainer);
+        document.querySelector(".location-form__container").innerHTML = "";
 
         const fieldSet = document.createElement("fieldset");
         fieldSet.classList.add("location-form__fieldset");
-        wrapperContainer.append(fieldSet);
+        document.querySelector(".location-form__container").append(fieldSet);
 
         const locationFormField = document.createElement("field");
         locationFormField.classList.add("location-form__field");
@@ -167,6 +184,7 @@ module.exports = {
 
         const submitButton = document.createElement("button");
         submitButton.classList.add("submitButton");
+        submitButton.classList.add("submitButton-add");
         submitButton.innerHTML = "Submit";
         locationFormField.append(submitButton);
 
@@ -191,8 +209,10 @@ module.exports = {
                 })
                 .then(center => {
                     console.log(center);
+                })
+                .then(() => {
+                    this.listOfRecycleCenters();
                 });
-
         }
     }
 

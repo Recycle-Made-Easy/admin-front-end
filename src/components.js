@@ -1,8 +1,6 @@
-const Map = require("./map");
 const Config = require("./config");
-const UserPage = require("./user_page");
 const AdminCat = require("./category_admin");
-const recycle_centers = require("./recycle_centers")
+const recycle_centers = require("./recycle_centers");
 
 module.exports = {
 
@@ -13,19 +11,19 @@ module.exports = {
         createdHeaderContainer.classList.add("header__container");
         wrapper.append(createdHeaderContainer);
 
-        const headerLeftSide = document.createElement("div");
-        headerLeftSide.classList.add("header__left-side");
-        createdHeaderContainer.append(headerLeftSide);
+        // const headerLeftSide = document.createElement("div");
+        // headerLeftSide.classList.add("header__left-side");
+        // createdHeaderContainer.append(headerLeftSide);
 
-        const headerRightSide = document.createElement("div");
-        headerRightSide.classList.add("header__right-side");
-        createdHeaderContainer.append(headerRightSide);
+        // const headerRightSide = document.createElement("div");
+        // headerRightSide.classList.add("header__right-side");
+        // createdHeaderContainer.append(headerRightSide);
 
         const headerTitle = document.createElement("h1");
         headerTitle.innerHTML = "Recycle Made Easy";
         headerTitle.classList.add("header__title");
         headerTitle.href = "javascript:void(0);";
-        headerLeftSide.append(headerTitle);
+        createdHeaderContainer.append(headerTitle);
 
         const contentBody = document.createElement("div");
         contentBody.classList.add("content-wrapper");
@@ -35,9 +33,6 @@ module.exports = {
             document.querySelector(".content-wrapper").innerHTML = "";
             UserPage.displayUserPage();
         }
-
-        // this.navigation();
-        // this.login();
     },
 
     login() {
@@ -63,10 +58,10 @@ module.exports = {
 
     navigation() {
 
-        const hrs = document.querySelector(".header__right-side");
+        const hc = document.querySelector(".header__container");
         const navContainer = document.createElement("div");
         navContainer.classList.add("nav__container");
-        hrs.append(navContainer);
+        hc.append(navContainer);
 
         const links = document.createElement("div");
         links.classList.add("nav__list");
@@ -91,24 +86,6 @@ module.exports = {
             AdminCat.adminCategories();
         }
         links.append(aLink3);
-
-        const navButton = document.createElement("button");
-        navButton.classList.add("nav__button");
-        navButton.textContent = "Menu";
-        navContainer.append(navButton);
-
-        // start with nav hidden
-        links.style.display = "none"
-
-        navButton.onclick = () => {
-            const nav = document.querySelector(".nav__list")
-            if (nav.style.display === "block") {
-                nav.style.display = "none";
-            } else {
-                nav.style.display = "block";
-            }
-        }
-
 
     },
 

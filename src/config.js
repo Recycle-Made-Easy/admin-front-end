@@ -7,20 +7,20 @@ module.exports = {
     EndPoints() {
         let endpoints = new Map();
         endpoints.set("get_all_centers", "http://localhost:8080/api/centers/");
-        endpoints.set("get_centers_by_placeId", "http://localhost:8080/api/geo/placeId/"); // + placeId
-        endpoints.set("get_list_of_cities", "http://localhost:8080/api/centers/cities");  
-        endpoints.set("get_centers_by_city", "http://localhost:8080/api/centers/city/"); // + city name
-        endpoints.set("get_filtered_centers", "http://localhost:8080/api/centers/filter/"); // + city name and array of category ids, or just + array of category ids
+        endpoints.set("get_centers_by_placeId", "http://localhost:8080/api/geo/placeId/"); 
+        endpoints.set("get_list_of_cities", "http://localhost:8080/api/centers/cities");
+        endpoints.set("get_centers_by_city", "http://localhost:8080/api/centers/city/"); 
+        endpoints.set("get_filtered_centers", "http://localhost:8080/api/centers/filter/"); 
         return endpoints;
     },
-    
+
     async LocalAreas() {
         let localAreas = [];
         await fetch("http://localhost:8080/api/geo/")
             .then(res => res.json())
             .then(function (data) {
                 localAreas = data;
-                });
+            });
         return localAreas;
     },
 
@@ -40,7 +40,7 @@ module.exports = {
             .then(res => res.json())
             .then(function (data) {
                 fetchedData = data;
-                });
+            });
         return fetchedData;
     }
 

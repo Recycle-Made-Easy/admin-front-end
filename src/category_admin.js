@@ -2,25 +2,25 @@ module.exports = {
 
     showAllCategories() {
 
-    const categoryContainer = document.createElement("section");
-    // categoryContainer.classList.add("recycling-category-container");
-    document.querySelector(".content-wrapper").append(categoryContainer);
+        const categoryContainer = document.createElement("section");
+
+        document.querySelector(".content-wrapper").append(categoryContainer);
 
         fetch("http://localhost:8080/api/categories/")
-        .then(res => res.json())
-        .then(function (data) {
-            for (let index = 0; index < data.length; index++){
-                const categoryName = document.createElement("p")
-                categoryName.innerHTML = data[index].name;
-                categoryContainer.append(categoryName);
-            }
-       });
-       
+            .then(res => res.json())
+            .then(function (data) {
+                for (let index = 0; index < data.length; index++) {
+                    const categoryName = document.createElement("p")
+                    categoryName.innerHTML = data[index].name;
+                    categoryContainer.append(categoryName);
+                }
+            });
+
     },
 
-    showDeletionSection(){
+    showDeletionSection() {
 
-        const wrapper = document.createElement ("wrapper");
+        const wrapper = document.createElement("wrapper");
         wrapper.classList.add("flex-wrapper-outer");
         document.querySelector(".content-wrapper").append(wrapper);
 
@@ -54,29 +54,22 @@ module.exports = {
         const DeleteCategoryButton = document.querySelector(".deletion-form__field");
         DeleteCategoryButton.onclick = () => {
             event.preventDefault();
-        
+
             fetch(`http://localhost:8080/api/categories/delete`, {
                 method: "Delete",
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name: inputCategoryForDeletion.value                    
+                    name: inputCategoryForDeletion.value
                 })
             });
-                // .then(response => {
-                //     return response.json();
-                // })
-                // .then(category => {
-                //     console.log(category);
-                // });
-
         }
     },
 
-    showAdditionSection(){
+    showAdditionSection() {
 
-        const wrapper = document.createElement ("wrapper");
+        const wrapper = document.createElement("wrapper");
         wrapper.classList.add("flex-wrapper-outer");
         document.querySelector(".content-wrapper").append(wrapper);
 
@@ -117,7 +110,7 @@ module.exports = {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    name: inputCategoryForAddition.value                    
+                    name: inputCategoryForAddition.value
                 })
             })
                 .then(response => {
@@ -131,20 +124,12 @@ module.exports = {
 
     },
 
-    // deleteCategory(){
-    //     fetch("http://localhost:8080/api/categories/{name}/delete-category")
-    //     method: "Delete"
-    //     body: formData
-    //     .then(res => res.json());
-    // },
-
-    // This function is called in components.js
     adminCategories() {
 
         const categoryContainer = document.createElement("section");
         categoryContainer.classList.add("admin-category-container");
         document.querySelector(".content-wrapper").append(categoryContainer);
-    
+
         const adminCategoriesTitle = document.createElement("h2");
         adminCategoriesTitle.innerHTML = "Admin Page For Categories";
         categoryContainer.append(adminCategoriesTitle);
@@ -154,29 +139,29 @@ module.exports = {
         adminCategoryWrapper.classList.add("admin-category-wrapper");
         document.querySelector(".admin-category-container").append(adminCategoryWrapper);
 
-            // Column 1: For showing all categories
-            const showAllColumn = document.createElement("section");
-            showAllColumn.classList.add("admin-column-show-all");
-            adminCategoryWrapper.append(showAllColumn);
-            
-            const showAllTitle = document.createElement("h3");
-            showAllTitle.innerHTML = "All categories:";
-            adminCategoryWrapper.append(showAllTitle);
+        // Column 1: For showing all categories
+        const showAllColumn = document.createElement("section");
+        showAllColumn.classList.add("admin-column-show-all");
+        adminCategoryWrapper.append(showAllColumn);
 
-            this.showAllCategories();
+        const showAllTitle = document.createElement("h3");
+        showAllTitle.innerHTML = "All categories:";
+        adminCategoryWrapper.append(showAllTitle);
 
-            // Column 2: For deleting categories
-            const deletionColumn = document.createElement("section");
-            deletionColumn.classList.add("admin-column-deletion");
-            adminCategoryWrapper.append(deletionColumn);
-            
-            this.showDeletionSection();
-            // Column 3: For adding categories
-            const additionColumn = document.createElement("section");
-            additionColumn.classList.add("admin-column-addition");
-            adminCategoryWrapper.append(additionColumn);          
-            
-            this.showAdditionSection();
+        this.showAllCategories();
+
+        // Column 2: For deleting categories
+        const deletionColumn = document.createElement("section");
+        deletionColumn.classList.add("admin-column-deletion");
+        adminCategoryWrapper.append(deletionColumn);
+
+        this.showDeletionSection();
+        // Column 3: For adding categories
+        const additionColumn = document.createElement("section");
+        additionColumn.classList.add("admin-column-addition");
+        adminCategoryWrapper.append(additionColumn);
+
+        this.showAdditionSection();
     }
 
 
