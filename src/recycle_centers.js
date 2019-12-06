@@ -34,7 +34,7 @@ module.exports = {
             console.log(center.state);
             console.log(center.zipCode);
             console.log(center.placeId);
-            
+
             // Recycle Center Card Container
             const div = document.createElement("div")
             div.classList.add("address-location");
@@ -47,12 +47,6 @@ module.exports = {
             link.innerHTML = center.name;
             div.append(link);
 
-            // Recycle Center Address
-            // const streetDiv = document.createElement("div");
-            // streetDiv.classList.add("address-street");
-            // streetDiv.innerHTML = center.streetAddress;            
-            // div.append(streetAddress);
-
             // Recycle Center City & State
             const cityState = document.createElement("div");
             cityState.classList.add("address-city-state__container");
@@ -61,27 +55,20 @@ module.exports = {
             // Recycle Center City
             const city = document.createElement("div");
             city.classList.add("address-city");
-            city.innerHTML = center.city + ",";            
+            city.innerHTML = center.city + ",";
             cityState.append(city);
 
             // Recycle Center State
             const state = document.createElement("div");
             state.classList.add("address-state");
-            state.innerHTML = center.state;          
+            state.innerHTML = center.state;
             cityState.append(state);
 
             // Recycle Center Zip Code
             const zip = document.createElement("div");
             zip.classList.add("address-zip");
-            zip.innerHTML = center.zipCode;            
+            zip.innerHTML = center.zipCode;
             cityState.append(zip);
-
-            // Recycle Center Place Id
-            // const placeId = document.createElement("div");
-            // placeId.classList.add("address-placeId");
-            // placeId.innerHTML = center.placeId;            
-            // div.append(placeId);
-            
         })
 
     },
