@@ -21,10 +21,10 @@ module.exports = {
         contentBody.classList.add("content-wrapper");
         wrapper.append(contentBody);
 
-        headerTitle.onclick = () => {
-            document.querySelector(".content-wrapper").innerHTML = "";
-            UserPage.displayUserPage();
-        }
+        const contentBody2 = document.createElement("div");
+        contentBody2.classList.add("content-wrapper2");
+        wrapper.append(contentBody2);
+        
     },
 
     login() {
@@ -64,6 +64,7 @@ module.exports = {
         aLink2.href = "javascript:void(0);";
         aLink2.onclick = () => {
             document.querySelector(".content-wrapper").innerHTML = "";
+            document.querySelector(".content-wrapper2").innerHTML = "";
             recycle_centers.displayRecycleCentersPage();
         }
         links.append(aLink2);
@@ -74,7 +75,9 @@ module.exports = {
         aLink3.href = "javascript:void(0);";
         aLink3.onclick = () => {
             document.querySelector(".content-wrapper").innerHTML = "";
+            document.querySelector(".content-wrapper2").innerHTML = "";
             AdminCat.adminCategories();
+            
         }
         links.append(aLink3);
 

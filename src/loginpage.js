@@ -80,10 +80,9 @@ module.exports = {
         const inputPassword = document.querySelector(".password-input").value;
   
         if (inputPassword == "a") {
-            this.loginSuccessful();            
-
+            this.loginSuccessful();           
         } else if (inputUsername == "admin" && inputPassword == "admin") {
-            this.loginSuccessful();
+            this.loginSuccessful();       
 
         } else {
             this.loginUnsuccessful();
