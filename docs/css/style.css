@@ -52,6 +52,12 @@ body {
   margin-left: .25rem;
 }
 
+.addresses-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 100%;
+}
+
 .by-town {
   align-items: flex-start;
   display: flex;
@@ -154,6 +160,32 @@ body {
   justify-content: flex-end;
 }
 
+.location-admin__container {
+  display: grid;
+  grid-gap: .5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.location-form__container {
+  display: grid;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.location-list__container {
+  display: grid;
+  grid-area: 2 / 1 / 4 / 3;
+  max-width: 25%;
+}
+
+.location-map__container {
+  display: grid;
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.location-search__container {
+}
+
 .location-selection-container {
   border-radius: 4px;
   border-style: solid;
@@ -200,6 +232,21 @@ body {
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 0.5rem;
   padding: 0.25rem;
+}
+
+.location-link__container {
+
+}
+
+.location-top__container {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  grid-area: 1 / 1 / 2 / 3;
+  max-height: 25%;
+  margin: 0;
+  padding: 0;
 }
 
 .login-button {
