@@ -76,26 +76,48 @@ module.exports = {
 
     Snackbar() {
 
+        const inputUsername = document.querySelector(".login-input").value;
         const inputPassword = document.querySelector(".password-input").value;
-
-        const div = document.createElement("div");
+        // const div = document.createElement("div");
         if (inputPassword == "savagesucksatfoose") {
-            div.innerHTML = "login successful";
-            div.className = "show";
-            setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
-            Components.navigation();
-            document.querySelector(".content-wrapper").removeChild(document.querySelector(".login__fieldset"));
-            recycle_centers.displayRecycleCentersPage();
+            this.loginSuccessful();
+            // div.innerHTML = "login successful";
+            // div.className = "show";
+            // setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
+            // Components.navigation();
+            // document.querySelector(".content-wrapper").removeChild(document.querySelector(".login__fieldset"));
+            // recycle_centers.displayRecycleCentersPage();
+
+        } else if (inputUsername == "admin" && inputPassword == "admin") {
+            this.loginSuccessful();
 
         } else {
-            div.innerHTML = "Please try again.";
-            div.className = "show";
-            setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
+            this.loginUnsuccessful();
+            // div.innerHTML = "Please try again.";
+            // div.className = "show";
+            // setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
         }
+        // div.classList.add("snackbar");
+        // document.querySelector(".content-wrapper").append(div);
+    },
+
+    loginSuccessful() {
+        const div = document.createElement("div");
+        div.innerHTML = "login successful";
+        div.className = "show";
+        setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
+        Components.navigation();
+        document.querySelector(".content-wrapper").removeChild(document.querySelector(".login__fieldset"));
+        recycle_centers.displayRecycleCentersPage();
         div.classList.add("snackbar");
-        document.querySelector(".flex-wrapper-outer").append(div);
+        document.querySelector(".content-wrapper").append(div);
+    },
 
-
+    loginUnsuccessful() {
+        const div = document.createElement("div");
+        div.innerHTML = "Please try again.";
+        div.className = "show";
+        setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
     }
 
 }
