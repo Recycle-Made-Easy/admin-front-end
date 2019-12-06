@@ -48,10 +48,10 @@ module.exports = {
             div.append(link);
 
             // Recycle Center Address
-            // const streetDiv = document.createElement("div");
-            // streetDiv.classList.add("address-street");
-            // streetDiv.innerHTML = center.streetAddress;            
-            // div.append(streetAddress);
+            const streetDiv = document.createElement("div");
+            streetDiv.classList.add("address-street");
+            streetDiv.innerHTML = center.streetAddress;            
+            div.append(streetDiv);
 
             // Recycle Center City & State
             const cityState = document.createElement("div");
