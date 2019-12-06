@@ -1,44 +1,77 @@
 const Components = require("./components");
+const recycle_centers = require("./recycle_centers");
 
 module.exports = {
 
     displayLogin() {
 
-        const flexWrapperOuter = document.createElement("wrapper");
-        flexWrapperOuter.classList.add("flex-wrapper-outer");
-        document.querySelector(".content-wrapper").append(flexWrapperOuter);
+        const fieldSet = document.createElement("fieldset");
+        fieldSet.classList.add("login__fieldset");
+        document.querySelector(".content-wrapper").append(fieldSet);
+
+        const loginContainer = document.createElement("wrapper");
+        loginContainer.classList.add("login__container");
+        fieldSet.append(loginContainer);
+
+        const labelContainer = document.createElement("div");
+        labelContainer.classList.add("label__container");
+        loginContainer.append(labelContainer);
+
+        const inputContainer = document.createElement("div");
+        inputContainer.classList.add("input__container");
+        loginContainer.append(inputContainer);
 
         const labelUserName = document.createElement("label");
         labelUserName.innerHTML = "User Name";
         labelUserName.classList.add("login-label");
-        flexWrapperOuter.append(labelUserName);
+        labelUserName.classList.add("login-field");
+        labelContainer.append(labelUserName);
 
         const inputUserName = document.createElement("input");
         inputUserName.classList.add("login-input");
-        flexWrapperOuter.append(inputUserName);
+        inputUserName.classList.add("login-field");
+        inputContainer.append(inputUserName);
 
         const labelPassword = document.createElement("label");
         labelPassword.innerHTML = "Password";
         labelPassword.classList.add("password-label");
-        flexWrapperOuter.append(labelPassword);
+        labelPassword.classList.add("login-field");
+        labelContainer.append(labelPassword);
 
         const inputPassword = document.createElement("input");
         inputPassword.type = "password";
         inputPassword.classList.add("password-input");
-        flexWrapperOuter.append(inputPassword);
+        inputPassword.classList.add("login-field");
+        inputContainer.append(inputPassword);
+
+        const loginButtonContainer = document.createElement("div");
+        loginButtonContainer.classList.add("login-button__container");
+        fieldSet.append(loginButtonContainer);
 
         const loginButton = document.createElement("button");
         loginButton.innerHTML = "Login";
         loginButton.classList.add("login-button");
-        flexWrapperOuter.append(loginButton);
-
+        loginButtonContainer.append(loginButton);
 
         loginButton.onclick = () => {
             event.preventDefault();
             this.Snackbar();
-
-
         }
+
+        inputPassword.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.querySelector(".login-button").click();
+            }
+        });
+
+        inputUserName.addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.querySelector(".login-button").click();
+            }
+        });
+
     },
 
     Snackbar() {
@@ -49,13 +82,15 @@ module.exports = {
         if (inputPassword == "savagesucksatfoose") {
             div.innerHTML = "login successful";
             div.className = "show";
+            setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
             Components.navigation();
-        } else if (inputPassword == "bbb") {
-            div.innerHTML = "Please try again";
-            div.className = "show";
+            document.querySelector(".content-wrapper").removeChild(document.querySelector(".login__fieldset"));
+            recycle_centers.displayRecycleCentersPage();
+
         } else {
-            div.innerHTML = "Please try again";
+            div.innerHTML = "Please try again.";
             div.className = "show";
+            setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
         }
         div.classList.add("snackbar");
         document.querySelector(".flex-wrapper-outer").append(div);
@@ -63,6 +98,6 @@ module.exports = {
 
     }
 
-
-
 }
+
+
