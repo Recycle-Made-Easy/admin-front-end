@@ -131,7 +131,7 @@ module.exports = {
                         headers: {
                             "Content-Type": "application/json"
                         },
-                        body: toStringify({
+                        body: JSON.stringify({
                             name: inputName.value,
                             streetAddress: inputStreetAddress.value,
                             city: inputCity.value,
