@@ -3,8 +3,8 @@ module.exports = {
     showAllCategories() {
 
         const categoryContainer = document.createElement("section");
-
-        document.querySelector(".content-wrapper").append(categoryContainer);
+        categoryContainer.classList.add("select-this");
+        document.querySelector(".admin-category-container").append(categoryContainer);
 
         fetch("http://localhost:8080/api/categories/")
             .then(res => res.json())
@@ -22,7 +22,7 @@ module.exports = {
 
         const wrapper = document.createElement("wrapper");
         wrapper.classList.add("flex-wrapper-outer");
-        document.querySelector(".content-wrapper").append(wrapper);
+        document.querySelector(".content-wrapper2").append(wrapper);
 
         const wrapperContainer = document.createElement("wrapper");
         wrapperContainer.classList.add("deletion-form__container");
@@ -71,7 +71,7 @@ module.exports = {
 
         const wrapper = document.createElement("wrapper");
         wrapper.classList.add("flex-wrapper-outer");
-        document.querySelector(".content-wrapper").append(wrapper);
+        document.querySelector(".content-wrapper2").append(wrapper);
 
         const wrapperContainer = document.createElement("wrapper");
         wrapperContainer.classList.add("addition-form__container");
@@ -118,8 +118,17 @@ module.exports = {
                 })
                 .then(category => {
                     console.log(category);
-                });
-
+                    document.querySelector(".select-this").innerHTML = "";
+                    fetch("http://localhost:8080/api/categories/")
+                        .then(res => res.json())
+                        .then(function (data) {
+                            for (let index = 0; index < data.length; index++) {
+                                const categoryName = document.createElement("p")
+                                categoryName.innerHTML = data[index].name;
+                                document.querySelector(".select-this").append(categoryName);
+                            }
+                        });
+                })
         }
 
     },
@@ -128,7 +137,7 @@ module.exports = {
 
         const categoryContainer = document.createElement("section");
         categoryContainer.classList.add("admin-category-container");
-        document.querySelector(".content-wrapper").append(categoryContainer);
+        document.querySelector(".content-wrapper2").append(categoryContainer);
 
         const adminCategoriesTitle = document.createElement("h2");
         adminCategoriesTitle.innerHTML = "Admin Page For Categories";
@@ -155,7 +164,7 @@ module.exports = {
         deletionColumn.classList.add("admin-column-deletion");
         adminCategoryWrapper.append(deletionColumn);
 
-        this.showDeletionSection();
+        // this.showDeletionSection();
         // Column 3: For adding categories
         const additionColumn = document.createElement("section");
         additionColumn.classList.add("admin-column-addition");

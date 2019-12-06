@@ -29,6 +29,10 @@ module.exports = {
         contentBody.classList.add("content-wrapper");
         wrapper.append(contentBody);
 
+        const contentBody2 = document.createElement("div");
+        contentBody2.classList.add("content-wrapper2");
+        wrapper.append(contentBody2);
+
         headerTitle.onclick = () => {
             document.querySelector(".content-wrapper").innerHTML = "";
             UserPage.displayUserPage();
