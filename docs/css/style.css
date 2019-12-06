@@ -81,6 +81,12 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+.content-wrapper2 {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+  justify-content: center;
+}
 
 .copyright {
   text-align: center;

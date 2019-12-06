@@ -79,7 +79,7 @@ module.exports = {
         const inputPassword = document.querySelector(".password-input").value;
 
         const div = document.createElement("div");
-        if (inputPassword == "savagesucksatfoose") {
+        if (inputPassword == "a") {
             div.innerHTML = "login successful";
             div.className = "show";
             setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
