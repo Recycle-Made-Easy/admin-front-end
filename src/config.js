@@ -5,8 +5,8 @@ module.exports = {
     },
 
     SERVER() {
-        // return "localhost:8080";
-        return "c83e2d28.ngrok.io";
+        return "localhost:8080";
+        // return "bit.ly/rme-api";
     },
 
     EndPoints() {
