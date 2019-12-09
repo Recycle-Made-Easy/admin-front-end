@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
+    "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
   },
   "repository": {
     "type": "git",

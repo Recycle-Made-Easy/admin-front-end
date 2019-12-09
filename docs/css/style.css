@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css?family=Happy+Monkey|Jua|Nanum+Gothic|Overlock+SC|Sniglet&display=swap");
+
+/*
+font-family: 'Happy Monkey', cursive;
+font-family: 'Overlock SC', cursive;
+font-family: 'Sniglet', cursive;
+font-family: 'Jua', sans-serif;
+font-family: 'Nanum Gothic', sans-serif;
+*/
+
+:root {
+  --oscar-the-grouch: green;
+  --some-sky-blue: rgb(144, 248, 255);
+}
+
+body {
+  background-image: linear-gradient(white, var(--some-sky-blue));
+  font-family: "Alata", sans-serif;
+  background-size: 500% 500%;
+  top:0px;
+  bottom: 0px;
+  height: 100%;
+  background-repeat: no-repeat;
+  position: center;
+  overflow-x: hidden;
+}
+
+.add-form-link {
+  color: var(--oscar-the-grouch);
+  text-decoration: none;
+}
+
+.add-form-link:hover {
+  color: rgb(0, 212, 0);
+}
+
+.address-city-state__container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+
+.address-location {
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 4px;
+  color: blue;
+  margin: 3px;
+  padding: 3px;
+}
+
+.address-location:hover {
+  border: 2px solid black;
+  color: rgb(0, 255, 34);
+  transition: 2s;
+}
+
+.address-zip {
+  margin-left: .25rem;
+}
+
+.addresses-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 100%;
+}
+
+.by-town {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  text-align: center;
+}
+
+.content-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.content-wrapper2 {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 20rem 20rem;
+  justify-content: center;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.dropdown {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: flex-start;
+  justify-content: space-around;
+  margin-bottom: .1rem;
+}
+
+.dropdown-content {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f9f9f9;
+  display: none;
+  min-width: 220px;
+  padding: 6px 8px;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.flex-wrapper-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  margin: 35px;
+}
+
+.flex-wrapper-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-map {
+  overflow: hidden;
+  padding-bottom: 40%;
+  position: relative;
+  height: 0;
+}
+
+.google-map__iframe {
+  width: 600;
+  height: 450;
+  border: 0;
+}
+
+.header__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header__menu {
+  background-color: var(--oscar-the-grouch);
+}
+
+.header__title {
+  color: var(--oscar-the-grouch);
+  margin-top: .75rem;
+  padding: .25rem;
+}
+
+.input__container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 1rem;
+}
+
+.label__container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.location-admin__container {
+  display: grid;
+  grid-gap: .5rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: .25fr 1fr 1fr;
+}
+
+.location-form__container {
+  display: grid;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+.location-list__container {
+  display: grid;
+  grid-area: 2 / 1 / 4 / 3;
+  max-width: 25%;
+}
+
+.location-map__container {
+  display: grid;
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.location-search__container {
+}
+
+.location-selection-container {
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: black;
+  padding: 5px;
+}
+
+.location-selection-header {
+  text-align: center;
+}
+
+.location-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.location-form__button {
+  align-self: center;
+  background-color: #18364b;
+  color: #e2ecf2;
+  font-family: "Alata", sans-serif;
+  font-size: 1.25rem;
+  padding: 0.25rem;
+  width: 100%;
+}
+
+.location-form__button:active {
+  background-color: #e2ecf2;
+  color: #18364b;
+  filter: saturate(150%);
+  transform: translateY(1px);
+}
+
+.location-form__fieldset {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.location-form__field {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+}
+
+.location-link__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.location-search__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.location-top__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  grid-area: 1 / 1 / 2 / 3;
+  max-height: 25%;
+  margin-top: .5rem;
+  padding: .5rem;
+}
+
+.login-button {
+  background-color: green;
+  color: white;
+  font-size: 1.15rem;
+  margin: 1rem;
+  min-width: 20%;
+  padding: 0.35rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.login-button__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-button:hover {
+  background-color: rgb(0, 212, 0);
+  color: white;
+}
+
+.login__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
+.login-field {
+  margin: .5rem;
+}
+
+.login__fieldset {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+  max-width: 75%;
+  padding-bottom: 3rem;
+  padding-left: 10rem;
+  padding-right: 10rem;
+
+}
+
+.login-label {
+}
+
+}
+
+.nav__container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: .25rem;
+  padding: .25rem;
+}
+
+.nav__list {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav__list-item {
+  color: var(--oscar-the-grouch);
+  font-size: 1.15rem;
+  list-style: none;
+  margin-left: .25rem;
+  margin-right: .25rem;
+  padding: 0.5rem;
+  text-decoration: none;
+}
+
+.nav__list-item:hover {
+  color: rgb(0, 212, 0);
+}
+
+.password-label {
+}
+
+.selectList {
+  background-color: rgb(167, 221, 167);
+  width: 150px;
+}
+
+.submit {
+  background-color: green;
+  color: white;
+}
+
+.submit:hover {
+  background-color: rgb(0, 212, 0);
+  color: white;
+}
+
+.snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+.snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
