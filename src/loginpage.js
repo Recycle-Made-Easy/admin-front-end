@@ -84,14 +84,14 @@ module.exports = {
         } else if (inputUsername == "admin" && inputPassword == "admin") {
             this.loginSuccessful();       
 
-        } else {
-            this.loginUnsuccessful();
+        } else {            
+            this.loginUnsuccessful();            
         }      
     },
 
     loginSuccessful() {
         const div = document.createElement("div");
-        div.innerHTML = "login successful";
+        div.innerHTML = "Login successful!";
         div.className = "show";
         setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
         Components.navigation();
@@ -101,11 +101,13 @@ module.exports = {
         document.querySelector(".content-wrapper").append(div);
     },
 
-    loginUnsuccessful() {
+    loginUnsuccessful() {        
         const div = document.createElement("div");
-        div.innerHTML = "Please try again.";
-        div.className = "show";
+        div.innerHTML = "Please try again.";        
+        div.className = "show";        
         setTimeout(function () { div.className = div.className.replace("show", ""); }, 3000);
+        div.classList.add("snackbar");
+        document.querySelector(".content-wrapper").append(div);
     }
 
 }
