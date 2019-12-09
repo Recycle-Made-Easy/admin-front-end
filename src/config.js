@@ -4,19 +4,25 @@ module.exports = {
         return "AIzaSyAZpUBB7ZJkWZnjMIK7bscJVc_6km5D6O4";
     },
 
+    SERVER() {
+        // return "localhost:8080";
+        return "c83e2d28.ngrok.io";
+    },
+
     EndPoints() {
+        const SERVER = this.SERVER();
         let endpoints = new Map();
-        endpoints.set("get_all_centers", "http://localhost:8080/api/centers/");
-        endpoints.set("get_centers_by_placeId", "http://localhost:8080/api/geo/placeId/"); 
-        endpoints.set("get_list_of_cities", "http://localhost:8080/api/centers/cities");
-        endpoints.set("get_centers_by_city", "http://localhost:8080/api/centers/city/"); 
-        endpoints.set("get_filtered_centers", "http://localhost:8080/api/centers/filter/"); 
+        endpoints.set("get_all_centers", "http://" + SERVER + "/api/centers/");
+        endpoints.set("get_centers_by_placeId", "http://" + SERVER + "/api/geo/placeId/"); // + placeId
+        endpoints.set("get_list_of_cities", "http://" + SERVER + "/api/centers/cities");  
+        endpoints.set("get_centers_by_city", "http://" + SERVER + "/api/centers/city/"); // + city name
+        endpoints.set("get_filtered_centers", "http://" + SERVER + "/api/centers/filter/"); // + city name and array of category ids, or just + array of category ids
         return endpoints;
     },
 
     async LocalAreas() {
         let localAreas = [];
-        await fetch("http://localhost:8080/api/geo/")
+        await fetch("http://" + this.SERVER() + "/api/geo/")
             .then(res => res.json())
             .then(function (data) {
                 localAreas = data;
