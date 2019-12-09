@@ -124,7 +124,7 @@ module.exports = {
 
                 editButton.onclick = () => {
                     event.preventDefault();
-                    fetch(`http://localhost:8080/api/centers/edit/` + center.id, {
+                    fetch(Config.SERVER() + "/api/centers/edit/" + center.id, {
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json"
@@ -245,59 +245,6 @@ module.exports = {
 
     },
 
-    // saveChangesButtonOnclick(div) {
-
-    //     div.onclick = () => {
-
-    //         const inputName = document.querySelector(".location-form__input-name");
-    //         const inputStreetAddress = document.querySelector(".location-form__input-street");
-    //         const inputCity = document.querySelector(".location-form__input-city");
-    //         const inputState = document.querySelector(".location-form__input-state");
-    //         const inputZipCode = document.querySelector(".location-form__input-zip");
-    //         const inputPlaceId = document.querySelector(".location-form__input-placeid");
-
-    //         inputName.value = center.name;
-    //         inputStreetAddress.value = center.streetAddress;
-    //         inputCity.value = center.city;
-    //         inputState.value = center.state;
-    //         inputZipCode.value = center.zipCode;
-    //         inputPlaceId.value = center.placeId;
-
-    //         console.log("Inside div onclick event.");
-    //         console.log(center);
-
-    //         // Hide Submit button for adding a new center...
-    //         document.querySelector(".submitButton-add").hidden = true;
-
-    //         // Show Save Changes button for updating a center...
-    //         document.querySelector(".submitButton-edit").hidden = false;
-
-    //         this.saveChangesButtonOnclick(center.id);
-
-    //         // editButton.onclick = () => {
-    //         //     event.preventDefault();
-    //         //     fetch(`http://localhost:8080/api/centers/edit/` + center.id, {
-    //         //         method: "PATCH",
-    //         //         headers: {
-    //         //             "Content-Type": "application/json"
-    //         //         },
-    //         //         body: JSON.stringify({
-    //         //             name: inputName.value,
-    //         //             streetAddress: inputStreetAddress.value,
-    //         //             city: inputCity.value,
-    //         //             state: inputState.value,
-    //         //             zipCode: inputZipCode.value,
-    //         //             placeId: inputPlaceId.value,
-    //         //         })
-    //         //     })
-    //         //         .then(() => {
-    //         //             this.listOfRecycleCenters();
-    //         //         });
-    //         // }
-
-
-    // },
-
     addRecycleCenterSubmitButtonOnclick() {
 
         const inputName = document.querySelector(".location-form__input-name");
@@ -310,7 +257,7 @@ module.exports = {
 
         submitButton.onclick = () => {
             event.preventDefault();
-            fetch(`http://localhost:8080/api/centers/add`, {
+            fetch(Config.SERVER() + "/api/centers/add", {
                 method: "Post",
                 headers: {
                     "Content-Type": "application/json"
