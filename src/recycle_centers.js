@@ -124,7 +124,7 @@ module.exports = {
 
                 editButton.onclick = () => {
                     event.preventDefault();
-                    fetch("http://" + Config.SERVER() + "/api/centers/edit/" + center.id, {
+                    fetch(Config.SERVER() + "/api/centers/edit/" + center.id, {
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json"
@@ -257,7 +257,7 @@ module.exports = {
 
         submitButton.onclick = () => {
             event.preventDefault();
-            fetch("http://" + Config.SERVER() + "/api/centers/add", {
+            fetch(Config.SERVER() + "/api/centers/add", {
                 method: "Post",
                 headers: {
                     "Content-Type": "application/json"

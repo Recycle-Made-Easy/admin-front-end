@@ -8,7 +8,7 @@ module.exports = {
         categoryContainer.classList.add("select-this");
         document.querySelector(".admin-category-container").append(categoryContainer);
 
-        fetch("http://" + Config.SERVER() + "/api/categories/")
+        fetch(Config.SERVER() + "/api/categories/")
             .then(res => res.json())
             .then(function (data) {
                 for (let index = 0; index < data.length; index++) {
@@ -57,7 +57,7 @@ module.exports = {
         DeleteCategoryButton.onclick = () => {
             event.preventDefault();
 
-            fetch(`http://" + Config.SERVER() + "/api/categories/delete`, {
+            fetch(Config.SERVER() + "/api/categories/delete", {
                 method: "Delete",
                 headers: {
                     "Content-Type": "application/json"
@@ -106,7 +106,7 @@ module.exports = {
         const AddCategoryButton = document.querySelector(".addition-form__button");
         AddCategoryButton.onclick = () => {
             event.preventDefault();
-            fetch(`http://" + Config.SERVER() + "/api/categories/add/`, {
+            fetch(Config.SERVER() + "/api/categories/add/", {
                 method: "Post",
                 headers: {
                     "Content-Type": "application/json"
@@ -121,7 +121,7 @@ module.exports = {
                 .then(category => {
                     console.log(category);
                     document.querySelector(".select-this").innerHTML = "";
-                    fetch("http://" + Config.SERVER() + "/api/categories/")
+                    fetch(Config.SERVER() + "/api/categories/")
                         .then(res => res.json())
                         .then(function (data) {
                             for (let index = 0; index < data.length; index++) {
