@@ -71,6 +71,13 @@ module.exports = {
             link.innerHTML = center.name;
             div.append(link);
 
+            // Recycle Center Street Address
+            const street = document.createElement("div");
+            street.classList.add("address-street");
+            street.value = center.streetAddress;
+            street.innerHTML = center.streetAddress;
+            div.append(street);
+
             // Recycle Center City & State
             const cityState = document.createElement("div");
             cityState.classList.add("address-city-state__container");
@@ -93,6 +100,19 @@ module.exports = {
             zip.classList.add("address-zip");
             zip.innerHTML = center.zipCode;
             cityState.append(zip);
+
+            // Categories
+            const categories = document.createElement("div");
+            categories.classList.add("categories-list");            
+            let categoryList = "";
+            let categoryIds = [];
+            center.categories.forEach(category => {
+                categoryList = categoryList + "• " + category.name + " ";
+                categoryIds.push = category.id;
+            })
+            categories.innerHTML = categoryList;
+            categories.value = categoryIds;
+            div.append(categories);
 
             // Center info populates in form when clicked on.
 
