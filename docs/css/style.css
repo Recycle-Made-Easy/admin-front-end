@@ -41,12 +41,21 @@ body {
   justify-content: flex-start;
 }
 
+.address-link {
+  /* font-size: 1.25rem; */
+}
+
+.categories-list {
+  font-size: .65rem;
+  margin-top: .25rem;
+}
 
 .address-location {
-  background-color: white;
-  border: 2px solid black;
+  background-image: linear-gradient(to right, white, rgb(196, 248, 196));
+  border: 5px solid green;
   border-radius: 4px;
   color: blue;
+  /* font-size: .75rem; */
   margin: 3px;
   padding: 3px;
 }

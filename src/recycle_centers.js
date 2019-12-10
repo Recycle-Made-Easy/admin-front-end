@@ -66,7 +66,7 @@ module.exports = {
 
             // Recycle Center Name
             const link = document.createElement('div')
-            link.classList.add("address-link")
+            link.classList.add("address-link");           
             link.value = center.name;
             link.innerHTML = center.name;
             div.append(link);
@@ -103,7 +103,7 @@ module.exports = {
 
             // Categories
             const categories = document.createElement("div");
-            categories.classList.add("categories-list");            
+            categories.classList.add("categories-list");
             let categoryList = "";
             let categoryIds = [];
             center.categories.forEach(category => {
@@ -248,6 +248,31 @@ module.exports = {
         inputLocationPlaceId.classList.add("location-form__input-placeid");
         locationFormField.append(inputLocationPlaceId);
 
+        // Add category checkboxes
+        // const categoryContainer = document.createElement("section");
+        // categoryContainer.classList.add("recycling-category-container");
+        // locationFormField.append(categoryContainer);
+
+        // fetch(Config.SERVER() + "/api/categories/")
+        //     .then(res => res.json())
+        //     .then(function (data) {
+        //         for (let index = 0; index < data.length; index++) {
+        //             const div = document.createElement("div")
+        //             div.classList.add(".category-checkbox");
+        //             const checkbox = document.createElement("input");
+        //             checkbox.type = "checkbox";
+        //             checkbox.value = data[index].id;
+        //             checkbox.id = data[index].name;
+        //             checkbox.name = "category-checkbox";
+        //             const label = document.createElement("label");
+        //             label.htmlFor = data[index].name + "-checkbox";
+        //             label.appendChild(document.createTextNode(data[index].name));
+        //             categoryContainer.append(checkbox);
+        //             categoryContainer.append(label);
+        //             categoryContainer.append(div);
+        //         }
+        //     })
+
         const submitButton = document.createElement("button");
         submitButton.classList.add("submitButton");
         submitButton.classList.add("submitButton-add");
@@ -274,9 +299,20 @@ module.exports = {
         const inputZipCode = document.querySelector(".location-form__input-zip");
         const inputPlaceId = document.querySelector(".location-form__input-placeid");
         const submitButton = document.querySelector(".submitButton-add");
+        const checkboxes = document.getElementsByName("category-checkbox"); 
 
         submitButton.onclick = () => {
             event.preventDefault();
+            
+            // let selectedCategories = [];
+            // checkboxes.forEach(checkbox => {
+            //     if(checkbox.checked){
+            //         selectedCategories.push(checkbox.value);
+                    
+            //     }                
+            // })
+            // console.log(selectedCategories);
+
             fetch(Config.SERVER() + "/api/centers/add", {
                 method: "Post",
                 headers: {
@@ -296,9 +332,11 @@ module.exports = {
                 })
                 .then(center => {
                     console.log(center);
+
                 })
                 .then(() => {
                     this.listOfRecycleCenters();
+                    this.recycleCenterAddForm();
                 });
         }
 
