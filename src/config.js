@@ -6,7 +6,7 @@ module.exports = {
 
     SERVER() {
         // return "localhost:8080";
-        return "https://473073b1.ngrok.io";
+        return "https://b724a777.ngrok.io";
     },
 
     EndPoints() {
