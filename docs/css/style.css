@@ -41,9 +41,7 @@ body {
   justify-content: flex-start;
 }
 
-.address-link {
-  /* font-size: 1.25rem; */
-}
+
 
 .categories-list {
   font-size: .65rem;
@@ -207,8 +205,6 @@ body {
   grid-area: 3 / 2 / 4 / 3;
 }
 
-.location-search__container {
-}
 
 .location-selection-container {
   border-radius: 4px;
@@ -331,11 +327,6 @@ body {
 
 }
 
-.login-label {
-}
-
-}
-
 .nav__container {
   align-items: center;
   display: flex;
@@ -364,9 +355,6 @@ body {
 
 .nav__list-item:hover {
   color: rgb(0, 212, 0);
-}
-
-.password-label {
 }
 
 .selectList {
